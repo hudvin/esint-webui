@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('proj', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr']);
+    .module('proj', ['angularFileUpload','ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
+      'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'
+      ]);
 
 })();

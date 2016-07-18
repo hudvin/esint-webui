@@ -1,7 +1,9 @@
 {
   "name": "proj",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "blueimp-file-upload": "jquery-file-upload#~9.11"
+  },
   "scripts": {
     "test": "gulp test"
   },

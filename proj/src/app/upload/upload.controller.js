@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('proj')
+    .module('proj', ['angularFileUpload'])
     .controller('UploadController', UploadController);
 
 

@@ -29,6 +29,7 @@
           "module": "ngAria"
         }
       ],
+      "blueimp-file"
       "jQuery": {
         "key": "jquery2"
       },
