@@ -20,8 +20,11 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 ;(function () {
     'use strict';
 
-    var isOnGitHub = window.location.hostname === 'blueimp.github.io',
-        url = isOnGitHub ? '//jquery-file-upload.appspot.com/' : 'server/php/';
+    // var isOnGitHub = window.location.hostname === 'blueimp.github.io',
+    //     url = isOnGitHub ? '//jquery-file-upload.appspot.com/' : 'server/php/';
+
+    var url = "http://127.0.0.1:8080/upload_file";
+    var isOnGitHub = false;
 
     angular.module('myApp', [
         'blueimp.fileupload'
