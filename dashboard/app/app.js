@@ -23,7 +23,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     // var isOnGitHub = window.location.hostname === 'blueimp.github.io',
     //     url = isOnGitHub ? '//jquery-file-upload.appspot.com/' : 'server/php/';
 
-    var url = "http://127.0.0.1:8080/upload_file";
+    var url = "http://127.0.0.1:8080/image/";
     var isOnGitHub = false;
 
     angular.module('myApp', [
