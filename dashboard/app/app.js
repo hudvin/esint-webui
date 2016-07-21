@@ -1,35 +1,27 @@
-'use strict';
-
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version',
-    'blueimp.fileupload'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
-
-
-
-
 ;(function () {
     'use strict';
-
-    // var isOnGitHub = window.location.hostname === 'blueimp.github.io',
-    //     url = isOnGitHub ? '//jquery-file-upload.appspot.com/' : 'server/php/';
-
+    
     var url = "http://127.0.0.1:8080/image/";
     var isOnGitHub = false;
 
-    angular.module('myApp', [
+    angular.module('myApp', ['ui.router',
         'blueimp.fileupload'
     ])
-        .config([
+
+        .config(function ($stateProvider, $urlRouterProvider) {
+
+            $urlRouterProvider.otherwise('/upload');
+
+            $stateProvider
+
+            // HOME STATES AND NESTED VIEWS ========================================
+                .state('upload', {
+                    url: '/upload',
+                    templateUrl: 'upload/upload-view.html'
+                })
+            ;
+
+        }, [
             '$httpProvider', 'fileUploadProvider',
             function ($httpProvider, fileUploadProvider) {
                 delete $httpProvider.defaults.headers.common['X-Requested-With'];
