@@ -9,7 +9,7 @@
     ])
 
         .config(function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/upload');
+            $urlRouterProvider.otherwise('/search');
             $stateProvider
                 .state('upload', {
                     url: '/upload',
@@ -18,6 +18,10 @@
                 .state('gallery', {
                     url: '/gallery',
                     templateUrl: 'gallery/gallery-view.html'
+                })
+                .state('search', {
+                    url: '/search',
+                    templateUrl: 'search/search.view.html'
                 })
                 .state('image', {
                     url: '/image/', // add this :imageId' !
