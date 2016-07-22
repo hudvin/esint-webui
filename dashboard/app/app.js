@@ -1,6 +1,6 @@
 ;(function () {
     'use strict';
-    
+
     var url = "http://127.0.0.1:8080/image/";
     var isOnGitHub = false;
 
@@ -9,18 +9,17 @@
     ])
 
         .config(function ($stateProvider, $urlRouterProvider) {
-
             $urlRouterProvider.otherwise('/upload');
-
             $stateProvider
-
-            // HOME STATES AND NESTED VIEWS ========================================
                 .state('upload', {
                     url: '/upload',
                     templateUrl: 'upload/upload-view.html'
                 })
+                .state('gallery', {
+                    url: '/gallery',
+                    templateUrl: 'gallery/gallery-view.html'
+                })
             ;
-
         }, [
             '$httpProvider', 'fileUploadProvider',
             function ($httpProvider, fileUploadProvider) {
@@ -30,7 +29,6 @@
                     '/cors/result.html?%s'
                 );
                 if (isOnGitHub) {
-                    // Demo settings:
                     angular.extend(fileUploadProvider.defaults, {
                         // Enable image resizing, except for Android and Opera,
                         // which actually support image resizing, but fail to
@@ -44,6 +42,30 @@
             }
         ])
 
+
+        .controller("GalleryController", function ($scope, $http) {
+            $scope.deleteImage = function deleteImage(index) {
+
+                var image = $scope.images.files[index]
+                var deleteUrl = image.deleteUrl
+
+                $http.delete(deleteUrl).success(function (data, status, headers, config) {
+                    // $scope.images = data;
+
+                    $scope.images.files.splice(index, 1);
+
+                }).error(function (data, status, headers, config) {
+                    console.log(status)
+                });
+
+            };
+
+            $http.get('http://127.0.0.1:8080/images/').success(function (data, status, headers, config) {
+                $scope.images = data;
+            }).error(function (data, status, headers, config) {
+                console.log(status)
+            });
+        })
         .controller('DemoFileUploadController', [
             '$scope', '$http', '$filter', '$window',
             function ($scope, $http) {
