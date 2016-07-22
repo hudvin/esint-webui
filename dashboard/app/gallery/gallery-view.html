@@ -6,12 +6,11 @@
             <div class="thumbnail">
                 <img src="{{file.url}}" alt="...">
                 <div class="caption">
-                    <h3>Thumbnail label</h3>
                     <p>name: {{file.name}}</p>
                     <p>size: {{file.size}}
                     <p>tags: none </p>
                     <p>caption: none</p>
-                    <a href="#" class="btn btn-primary" role="button">View</a>
+                    <a  ui-sref="image({imageId:file.id, file:file})" class="btn btn-primary" role="button">View</a>
                     <a href="" class="btn btn-default" role="button" ng-click="deleteImage($index)" >Delete</a></p>
                     <a href="" class="btn btn-default" role="button">Reindex</a></p>
                 </div>

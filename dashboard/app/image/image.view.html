@@ -1,0 +1,13 @@
+<div class="thumbnail">
+    <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>name: {{file.name}}</p>
+        <p>size: {{file.size}}
+        <p>tags: none </p>
+        <p>caption: none</p>
+        <a href="" class="btn btn-default" role="button" ng-click="deleteImage($index)">Delete</a></p>
+        <a href="" class="btn btn-default" role="button">Reindex</a></p>
+    </div>
+    <img ng-src="{{file.url}}"/>
+</div>
+

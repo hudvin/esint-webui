@@ -19,6 +19,19 @@
                     url: '/gallery',
                     templateUrl: 'gallery/gallery-view.html'
                 })
+                .state('image', {
+                    url: '/image/', // add this :imageId' !
+                    params: {
+                        file: null,
+                        imageId: null
+                    },
+                    controller: function($scope, $stateParams){
+                      //  $scope.imageId = $stateParams.imageId;
+                      //  $scope.imageUrl = $stateParams.file.url
+                        $scope.file = $stateParams.file
+                    },
+                    templateUrl: 'image/image.view.html'
+                })
             ;
         }, [
             '$httpProvider', 'fileUploadProvider',
